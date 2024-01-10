@@ -15,7 +15,7 @@ pipeline {
         sh "docker build -t ghcr.io/tipapornc/tc_ms ."
       }
     }
-    stages('Deliver Docker Image') {
+    stage('Deliver Docker Image') {
       agent {label 'build-server'}
       steps {
         withCredentials(
