@@ -15,5 +15,19 @@ pipeline {
         sh "docker build -t ghcr.io/tipapornc/tc_ms ."
       }
     }
+    stages('Deliver Docker Image') {
+      agent {label 'build-server'}
+      steps {
+        withCredentials(
+          [usernamePassword(
+            credentialsId: 'tipapornc',
+            passwordVariable: 'githubPassword',
+            usernameVariable: 'githubUser'
+          )]
+        )
+      }
+        sh "docker login ghcr.io -u ${env.githubUser} -p ${env.githubPassword}"
+        sh "docker push ghcr.io/tipapornc/tc_ms"
+    }
   }
 }
