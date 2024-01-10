@@ -23,11 +23,13 @@ pipeline {
             credentialsId: 'tipapornc',
             passwordVariable: 'githubPassword',
             usernameVariable: 'githubUser'
-          )]
-        )
+          )])
+          {
+            sh "docker login ghcr.io -u ${env.githubUser} -p ${env.githubPassword}"
+            sh "docker push ghcr.io/tipapornc/tc_ms"
+          }
       }
-        sh "docker login ghcr.io -u ${env.githubUser} -p ${env.githubPassword}"
-        sh "docker push ghcr.io/tipapornc/tc_ms"
+      
     }
   }
 }
