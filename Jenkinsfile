@@ -12,7 +12,7 @@ pipeline {
     stage('Build Stage (Docker)') {
       agent {label 'build-server'}
       steps {
-        sh "docker build -t ghcr.io/tipapornc/tc_ms:newest ."
+        sh "docker build -t ghcr.io/tipapornc/tc_ms ."
       }
     }
   }
