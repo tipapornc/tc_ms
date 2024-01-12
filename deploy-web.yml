@@ -15,6 +15,7 @@ spec:
       containers:
         - name: user06-server
           image: ghcr.io/tipapornc/tc_ms
+          pullImagePolicy: Always
           ports:
             - containerPort: 80
 ---
