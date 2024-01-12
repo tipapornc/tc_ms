@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: user06
+  name: user06-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user06
+      app: user06-service
   template:
     metadata:
       labels:
-        app: user06
+        app: user06-service
     spec:
       containers:
         - name: user06-server
@@ -27,7 +27,7 @@ metadata:
     app: user06-service
 spec:
   selector:
-    app: user06
+    app: user06-service
   ports:
     - name: web-port
       protocol: TCP
