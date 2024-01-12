@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tc-ms
+  name: user06
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tc-ms
+      app: user06
   template:
     metadata:
       labels:
-        app: tc-ms
+        app: user06
     spec:
       containers:
-        - name: tc-ms-server
+        - name: user06-server
           image: ghcr.io/tipapornc/tc_ms
           ports:
             - containerPort: 80
@@ -21,9 +21,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tc-ms-service
+  name: user06-service
   labels:
-    app: tc-ms-service
+    app: user06-service
 spec:
   selector:
     app: tc-ms
