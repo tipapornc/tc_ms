@@ -26,7 +26,7 @@ metadata:
     app: user06-service
 spec:
   selector:
-    app: tc-ms
+    app: user06
   ports:
     - name: web-port
       protocol: TCP
